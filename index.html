@@ -1,6 +1,11 @@
 <h1>SNAKE GAME</h1>
 <canvas id="canvas" width="400" height="400"></canvas>
-<label id="score" unselectable="on">Pontuação: <span id="value">0</span></label>
+<div class="scoreDiv" style="color:red">
+	<label>Maior Pontuação: </label>
+	<label id="highScore">0</label>
+</div>
+
+<label id="score" unselectable="on">Pontuação Atual: <span id="value">0</span></label>
 <script type="text/javascript" src="script.js"></script>
 <style>
 	body {
@@ -10,13 +15,17 @@
 
 	}
 
-	#canvas {
-		box-shadow: 1px 1px black;
+	h1 {
+		user-select: none;
 	}
-	#score {
+
+	#canvas {
+		border: 5px solid #ccc;
+	}
+	#score, .scoreDiv {
 		font-weight: bold;
 		font-size: 2rem;
-		margin-top: 5%;
+		margin-top: 2%;
 		user-select: none;
 
 	}

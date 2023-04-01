@@ -2,6 +2,7 @@ window.onload = function() {
 	canvas = document.getElementById("canvas");
 	ctx = canvas.getContext("2d");
 	score = document.querySelector("span");
+	highScoreLb = document.querySelector("#highScore");
 
 	// variáveis
 	snake = [];
@@ -14,6 +15,7 @@ window.onload = function() {
 	grid = 20;
 	tam = 3;
 	pontos = 0;
+	highScore = 0;
 
 	// Chamada da função jogo a cada 100 ms
 	setInterval(jogo, 100);
@@ -77,6 +79,10 @@ function jogo() {
 		ctx.fillRect(snake[i].x*grid, snake[i].y*grid, grid-1, grid-1);
 		if(snake[i].x == positionX && snake[i].y == positionY) {
 			tam = 3;
+			if(pontos > highScore) {
+				highScore = pontos;
+				highScoreLb.textContent = highScore;
+			};
 			pontos = 0;
 			score.textContent = 0;
 		}
